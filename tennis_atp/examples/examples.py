@@ -97,22 +97,22 @@ def readFMatchesParseTime(dirname):
         container.append(df)
     matches = pd.concat(container)
     return matches
-#
-# def readChall_QATPMatchesParseTime(dirname):
-#     """reads Challenger level + ATP Q matches and parses time into datetime objects"""
-#     allFiles = glob.glob(normalize_path(dirname + "/atp_matches_qual_chall_" + "????.csv"))
-#     matches = pd.DataFrame()
-#     container = list()
-#     for filen in allFiles:
-#         df = pd.read_csv(filen,
-#                          index_col=None,
-#                          header=0,
-#                          parse_dates=[5],
-#                          encoding = "ISO-8859-1",
-#                          date_parser=lambda t:parse(t))
-#         container.append(df)
-#     matches = pd.concat(container)
-#     return matches
+
+def readChall_QATPMatchesParseTime(dirname):
+    """reads Challenger level + ATP Q matches and parses time into datetime objects"""
+    allFiles = glob.glob(normalize_path(dirname + "/atp_matches_qual_chall_" + "????.csv"))
+    matches = pd.DataFrame()
+    container = list()
+    for filen in allFiles:
+        df = pd.read_csv(filen,
+                         index_col=None,
+                         header=0,
+                         parse_dates=[5],
+                         encoding = "ISO-8859-1",
+                         date_parser=lambda t:parse(t))
+        container.append(df)
+    matches = pd.concat(container)
+    return matches
 #
 # def readChall_QATPMatches(dirname):
 #     """reads Challenger level + ATP Q matches but does not parse time into datetime objects"""
